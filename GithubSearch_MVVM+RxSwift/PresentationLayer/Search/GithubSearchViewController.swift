@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GithubSearchViewController.swift
 //  GithubSearch_MVVM+RxSwift
 //
 //  Created by 박승태 on 2023/02/07.
@@ -7,9 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GithubSearchViewController: UIViewController {
     
-    init() {
+    // MARK: -- Properties
+    
+    private let user: User
+    
+    // MARK: -- Initalize
+    
+    init(user: User) {
+        self.user = user
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -17,9 +25,19 @@ class ViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: -- Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
     }
+    
+    // MARK: -- Methods
+    
+    // MARK: -- AddViews
+    
+    // MARK: -- SetUpViewsLayout
+    
+    // MARK: -- UI
 }

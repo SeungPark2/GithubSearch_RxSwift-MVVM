@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B1C2992779600FACA75 /* AppDelegate.swift */; };
 		01266B1F2992779600FACA75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B1E2992779600FACA75 /* SceneDelegate.swift */; };
-		01266B212992779600FACA75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B202992779600FACA75 /* ViewController.swift */; };
+		01266B212992779600FACA75 /* GithubSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B202992779600FACA75 /* GithubSearchViewController.swift */; };
 		01266B262992779700FACA75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01266B252992779700FACA75 /* Assets.xcassets */; };
 		01266B292992779700FACA75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01266B272992779700FACA75 /* LaunchScreen.storyboard */; };
 		01266B342992779700FACA75 /* GithubSearch_MVVM_RxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B332992779700FACA75 /* GithubSearch_MVVM_RxSwiftTests.swift */; };
 		01266B3E2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B3D2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift */; };
 		01266B402992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */; };
+		01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */; };
+		01A8B4E32993B39800796D1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E22993B39800796D1E /* User.swift */; };
+		01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E42993B42400796D1E /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,7 @@
 		01266B192992779600FACA75 /* GithubSearch_MVVM+RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubSearch_MVVM+RxSwift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01266B1C2992779600FACA75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01266B1E2992779600FACA75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		01266B202992779600FACA75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01266B202992779600FACA75 /* GithubSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchViewController.swift; sourceTree = "<group>"; };
 		01266B252992779700FACA75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01266B282992779700FACA75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01266B2A2992779700FACA75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		01266B392992779700FACA75 /* GithubSearch_MVVM+RxSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GithubSearch_MVVM+RxSwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01266B3D2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearch_MVVM_RxSwiftUITests.swift; sourceTree = "<group>"; };
 		01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		01A8B4E22993B39800796D1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		01A8B4E42993B42400796D1E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		01266B1B2992779600FACA75 /* GithubSearch_MVVM+RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B4E12993B22E00796D1E /* Data */,
 				01A8B4D92993A86600796D1E /* App */,
 				01A8B4DB2993A8FA00796D1E /* Core */,
 				01A8B4DA2993A87F00796D1E /* DesignSystem */,
@@ -146,6 +153,7 @@
 		01A8B4D12993A7BB00796D1E /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */,
 				01A8B4D62993A84000796D1E /* Profile */,
 				01A8B4D52993A83800796D1E /* Search */,
 			);
@@ -176,7 +184,7 @@
 		01A8B4D52993A83800796D1E /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				01266B202992779600FACA75 /* ViewController.swift */,
+				01266B202992779600FACA75 /* GithubSearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 		01A8B4D62993A84000796D1E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B4E42993B42400796D1E /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -191,6 +200,7 @@
 		01A8B4D72993A85600796D1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B4E22993B39800796D1E /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +261,13 @@
 			children = (
 			);
 			path = Literals;
+			sourceTree = "<group>";
+		};
+		01A8B4E12993B22E00796D1E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,8 +400,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01266B212992779600FACA75 /* ViewController.swift in Sources */,
+				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
+				01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */,
+				01266B212992779600FACA75 /* GithubSearchViewController.swift in Sources */,
 				01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */,
+				01A8B4E32993B39800796D1E /* User.swift in Sources */,
 				01266B1F2992779600FACA75 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,7 +576,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D976LJQ8XK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GithubSearch_MVVM+RxSwift/Info.plist";
+				INFOPLIST_FILE = "GithubSearch_MVVM+RxSwift/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -586,7 +606,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D976LJQ8XK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GithubSearch_MVVM+RxSwift/Info.plist";
+				INFOPLIST_FILE = "GithubSearch_MVVM+RxSwift/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
