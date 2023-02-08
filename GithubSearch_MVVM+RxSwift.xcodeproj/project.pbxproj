@@ -97,12 +97,12 @@
 		01266B1B2992779600FACA75 /* GithubSearch_MVVM+RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				01266B1C2992779600FACA75 /* AppDelegate.swift */,
-				01266B1E2992779600FACA75 /* SceneDelegate.swift */,
-				01266B202992779600FACA75 /* ViewController.swift */,
-				01266B252992779700FACA75 /* Assets.xcassets */,
-				01266B272992779700FACA75 /* LaunchScreen.storyboard */,
-				01266B2A2992779700FACA75 /* Info.plist */,
+				01A8B4D92993A86600796D1E /* App */,
+				01A8B4DB2993A8FA00796D1E /* Core */,
+				01A8B4DA2993A87F00796D1E /* DesignSystem */,
+				01A8B4CF2993A78200796D1E /* DataLayer */,
+				01A8B4D02993A7A800796D1E /* DomainLayer */,
+				01A8B4D12993A7BB00796D1E /* PresentationLayer */,
 			);
 			path = "GithubSearch_MVVM+RxSwift";
 			sourceTree = "<group>";
@@ -122,6 +122,135 @@
 				01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */,
 			);
 			path = "GithubSearch_MVVM+RxSwiftUITests";
+			sourceTree = "<group>";
+		};
+		01A8B4CF2993A78200796D1E /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B4D32993A82000796D1E /* DTO */,
+				01A8B4D22993A7CD00796D1E /* Network */,
+				01A8B4D42993A82900796D1E /* Repository */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		01A8B4D02993A7A800796D1E /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B4D72993A85600796D1E /* Model */,
+				01A8B4D82993A85D00796D1E /* UseCase */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		01A8B4D12993A7BB00796D1E /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B4D62993A84000796D1E /* Profile */,
+				01A8B4D52993A83800796D1E /* Search */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		01A8B4D22993A7CD00796D1E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		01A8B4D32993A82000796D1E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		01A8B4D42993A82900796D1E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		01A8B4D52993A83800796D1E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				01266B202992779600FACA75 /* ViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		01A8B4D62993A84000796D1E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		01A8B4D72993A85600796D1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01A8B4D82993A85D00796D1E /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		01A8B4D92993A86600796D1E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				01266B1C2992779600FACA75 /* AppDelegate.swift */,
+				01266B2A2992779700FACA75 /* Info.plist */,
+				01266B272992779700FACA75 /* LaunchScreen.storyboard */,
+				01266B1E2992779600FACA75 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		01A8B4DA2993A87F00796D1E /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				01266B252992779700FACA75 /* Assets.xcassets */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		01A8B4DB2993A8FA00796D1E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B4DD2993A94300796D1E /* Extenstion */,
+				01A8B4DE2993A95B00796D1E /* Literals */,
+				01A8B4DC2993A93D00796D1E /* Protocols */,
+			);
+			name = Core;
+			path = "책ㄷ";
+			sourceTree = "<group>";
+		};
+		01A8B4DC2993A93D00796D1E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		01A8B4DD2993A94300796D1E /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
+		01A8B4DE2993A95B00796D1E /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
