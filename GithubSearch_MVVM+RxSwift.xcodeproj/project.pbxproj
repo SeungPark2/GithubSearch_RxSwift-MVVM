@@ -18,6 +18,13 @@
 		01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */; };
 		01A8B4E32993B39800796D1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E22993B39800796D1E /* User.swift */; };
 		01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E42993B42400796D1E /* ProfileViewController.swift */; };
+		01A8B4F02993B88100796D1E /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4EF2993B88100796D1E /* RxCocoa-Dynamic */; };
+		01A8B4F22993B88100796D1E /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4F12993B88100796D1E /* RxRelay-Dynamic */; };
+		01A8B4F42993B88100796D1E /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4F32993B88100796D1E /* RxSwift-Dynamic */; };
+		01A8B4F72993B88F00796D1E /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4F62993B88F00796D1E /* SnapKit-Dynamic */; };
+		01A8B4FA2993B8C400796D1E /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4F92993B8C400796D1E /* Differentiator */; };
+		01A8B4FC2993B8C400796D1E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4FB2993B8C400796D1E /* RxDataSources */; };
+		01A8B4FF2993B8ED00796D1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4FE2993B8ED00796D1E /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +67,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A8B4F22993B88100796D1E /* RxRelay-Dynamic in Frameworks */,
+				01A8B4FA2993B8C400796D1E /* Differentiator in Frameworks */,
+				01A8B4FF2993B8ED00796D1E /* Kingfisher in Frameworks */,
+				01A8B4F42993B88100796D1E /* RxSwift-Dynamic in Frameworks */,
+				01A8B4FC2993B8C400796D1E /* RxDataSources in Frameworks */,
+				01A8B4F02993B88100796D1E /* RxCocoa-Dynamic in Frameworks */,
+				01A8B4F72993B88F00796D1E /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +300,15 @@
 			dependencies = (
 			);
 			name = "GithubSearch_MVVM+RxSwift";
+			packageProductDependencies = (
+				01A8B4EF2993B88100796D1E /* RxCocoa-Dynamic */,
+				01A8B4F12993B88100796D1E /* RxRelay-Dynamic */,
+				01A8B4F32993B88100796D1E /* RxSwift-Dynamic */,
+				01A8B4F62993B88F00796D1E /* SnapKit-Dynamic */,
+				01A8B4F92993B8C400796D1E /* Differentiator */,
+				01A8B4FB2993B8C400796D1E /* RxDataSources */,
+				01A8B4FE2993B8ED00796D1E /* Kingfisher */,
+			);
 			productName = "GithubSearch_MVVM+RxSwift";
 			productReference = 01266B192992779600FACA75 /* GithubSearch_MVVM+RxSwift.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +381,12 @@
 				Base,
 			);
 			mainGroup = 01266B102992779600FACA75;
+			packageReferences = (
+				01A8B4EE2993B88100796D1E /* XCRemoteSwiftPackageReference "RxSwift" */,
+				01A8B4F52993B88E00796D1E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				01A8B4F82993B8C400796D1E /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				01A8B4FD2993B8ED00796D1E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 01266B1A2992779600FACA75 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -581,6 +610,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,6 +641,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -743,6 +774,79 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		01A8B4EE2993B88100796D1E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		01A8B4F52993B88E00796D1E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		01A8B4F82993B8C400796D1E /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		01A8B4FD2993B8ED00796D1E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01A8B4EF2993B88100796D1E /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4EE2993B88100796D1E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		01A8B4F12993B88100796D1E /* RxRelay-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4EE2993B88100796D1E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxRelay-Dynamic";
+		};
+		01A8B4F32993B88100796D1E /* RxSwift-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4EE2993B88100796D1E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxSwift-Dynamic";
+		};
+		01A8B4F62993B88F00796D1E /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4F52993B88E00796D1E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		01A8B4F92993B8C400796D1E /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4F82993B8C400796D1E /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		01A8B4FB2993B8C400796D1E /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4F82993B8C400796D1E /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		01A8B4FE2993B8ED00796D1E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B4FD2993B8ED00796D1E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 01266B112992779600FACA75 /* Project object */;
 }
