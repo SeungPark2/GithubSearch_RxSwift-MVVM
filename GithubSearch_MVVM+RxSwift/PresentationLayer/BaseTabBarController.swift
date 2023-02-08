@@ -32,13 +32,21 @@ class BaseTabBarController: UITabBarController {
     // MARK: -- Methods
     
     private func setUpTabBars(with user: User) {
-        searchNavigationController = UINavigationController(rootViewController: GithubSearchViewController(user: user))
+        let githubSearchRepository = GithubSearchRepository()
+        let githubUseCase = GithubSearchUseCase(repository: githubSearchRepository, user: user)
+        let githubViewModel = GithubSearchViewModel(useCase: githubUseCase)
+        let githubViewController = GithubSearchViewController(viewModel: githubViewModel)
+        searchNavigationController = UINavigationController(rootViewController: githubViewController)
         searchNavigationController.tabBarItem = UITabBarItem(
             title: "검색",
             image: UIImage(systemName: "magnifyingglass"),
             tag: 0
         )
-        profileNavigationController = UINavigationController(rootViewController: ProfileViewController(user: user))
+        let profileRepository = ProfileRepository()
+        let profileUseCase = ProfileUseCase(repository: profileRepository, user: user)
+        let profileViewModel = ProfileViewModel(useCase: profileUseCase)
+        let profileViewController = ProfileViewController(viewModel: profileViewModel)
+        profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.tabBarItem = UITabBarItem(
             title: "프로필",
             image: UIImage(systemName: "person.fill"),

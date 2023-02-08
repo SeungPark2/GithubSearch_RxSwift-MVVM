@@ -7,16 +7,21 @@
 
 import UIKit
 
+import SnapKit
+import Then
+import RxSwift
+
 class ProfileViewController: UIViewController {
     
     // MARK: -- Properties
     
-    private let user: User
+    private let viewModel: ProfileViewModel
+    private let disposeBag = DisposeBag()
     
     // MARK: -- Initalize
     
-    init(user: User) {
-        self.user = user
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }

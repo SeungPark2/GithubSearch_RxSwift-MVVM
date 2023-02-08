@@ -25,6 +25,14 @@
 		01A8B4FA2993B8C400796D1E /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4F92993B8C400796D1E /* Differentiator */; };
 		01A8B4FC2993B8C400796D1E /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4FB2993B8C400796D1E /* RxDataSources */; };
 		01A8B4FF2993B8ED00796D1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B4FE2993B8ED00796D1E /* Kingfisher */; };
+		01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5002993B9B000796D1E /* GithubSearchViewModel.swift */; };
+		01A8B5032993B9D700796D1E /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5022993B9D700796D1E /* ViewModelType.swift */; };
+		01A8B5052993BA8400796D1E /* GithubSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5042993BA8400796D1E /* GithubSearchUseCase.swift */; };
+		01A8B5072993BA8F00796D1E /* GithubSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5062993BA8F00796D1E /* GithubSearchRepository.swift */; };
+		01A8B50D2993C9BF00796D1E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B50C2993C9BF00796D1E /* Then */; };
+		01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B50E2993CE6400796D1E /* ProfileRepository.swift */; };
+		01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5102993CE6F00796D1E /* ProfileUseCase.swift */; };
+		01A8B5132993CE7500796D1E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5122993CE7500796D1E /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +68,13 @@
 		01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		01A8B4E22993B39800796D1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01A8B4E42993B42400796D1E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		01A8B5002993B9B000796D1E /* GithubSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchViewModel.swift; sourceTree = "<group>"; };
+		01A8B5022993B9D700796D1E /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		01A8B5042993BA8400796D1E /* GithubSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchUseCase.swift; sourceTree = "<group>"; };
+		01A8B5062993BA8F00796D1E /* GithubSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchRepository.swift; sourceTree = "<group>"; };
+		01A8B50E2993CE6400796D1E /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		01A8B5102993CE6F00796D1E /* ProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUseCase.swift; sourceTree = "<group>"; };
+		01A8B5122993CE7500796D1E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +85,7 @@
 				01A8B4F22993B88100796D1E /* RxRelay-Dynamic in Frameworks */,
 				01A8B4FA2993B8C400796D1E /* Differentiator in Frameworks */,
 				01A8B4FF2993B8ED00796D1E /* Kingfisher in Frameworks */,
+				01A8B50D2993C9BF00796D1E /* Then in Frameworks */,
 				01A8B4F42993B88100796D1E /* RxSwift-Dynamic in Frameworks */,
 				01A8B4FC2993B8C400796D1E /* RxDataSources in Frameworks */,
 				01A8B4F02993B88100796D1E /* RxCocoa-Dynamic in Frameworks */,
@@ -191,6 +207,8 @@
 		01A8B4D42993A82900796D1E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B5062993BA8F00796D1E /* GithubSearchRepository.swift */,
+				01A8B50E2993CE6400796D1E /* ProfileRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -199,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				01266B202992779600FACA75 /* GithubSearchViewController.swift */,
+				01A8B5002993B9B000796D1E /* GithubSearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -207,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B4E42993B42400796D1E /* ProfileViewController.swift */,
+				01A8B5122993CE7500796D1E /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -222,6 +242,8 @@
 		01A8B4D82993A85D00796D1E /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B5042993BA8400796D1E /* GithubSearchUseCase.swift */,
+				01A8B5102993CE6F00796D1E /* ProfileUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -259,6 +281,7 @@
 		01A8B4DC2993A93D00796D1E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B5022993B9D700796D1E /* ViewModelType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -308,6 +331,7 @@
 				01A8B4F92993B8C400796D1E /* Differentiator */,
 				01A8B4FB2993B8C400796D1E /* RxDataSources */,
 				01A8B4FE2993B8ED00796D1E /* Kingfisher */,
+				01A8B50C2993C9BF00796D1E /* Then */,
 			);
 			productName = "GithubSearch_MVVM+RxSwift";
 			productReference = 01266B192992779600FACA75 /* GithubSearch_MVVM+RxSwift.app */;
@@ -386,6 +410,7 @@
 				01A8B4F52993B88E00796D1E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				01A8B4F82993B8C400796D1E /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				01A8B4FD2993B8ED00796D1E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				01A8B50B2993C9BF00796D1E /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 01266B1A2992779600FACA75 /* Products */;
 			projectDirPath = "";
@@ -429,10 +454,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A8B5072993BA8F00796D1E /* GithubSearchRepository.swift in Sources */,
+				01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */,
+				01A8B5052993BA8400796D1E /* GithubSearchUseCase.swift in Sources */,
+				01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */,
+				01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
 				01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */,
 				01266B212992779600FACA75 /* GithubSearchViewController.swift in Sources */,
+				01A8B5032993B9D700796D1E /* ViewModelType.swift in Sources */,
 				01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */,
+				01A8B5132993CE7500796D1E /* ProfileViewModel.swift in Sources */,
 				01A8B4E32993B39800796D1E /* User.swift in Sources */,
 				01266B1F2992779600FACA75 /* SceneDelegate.swift in Sources */,
 			);
@@ -808,6 +840,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		01A8B50B2993C9BF00796D1E /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -845,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 01A8B4FD2993B8ED00796D1E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		01A8B50C2993C9BF00796D1E /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01A8B50B2993C9BF00796D1E /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

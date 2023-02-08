@@ -7,16 +7,21 @@
 
 import UIKit
 
+import SnapKit
+import Then
+import RxSwift
+
 class GithubSearchViewController: UIViewController {
     
     // MARK: -- Properties
     
-    private let user: User
+    private let viewModel: GithubSearchViewModel
+    private let disposeBag = DisposeBag()
     
     // MARK: -- Initalize
     
-    init(user: User) {
-        self.user = user
+    init(viewModel: GithubSearchViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,4 +45,5 @@ class GithubSearchViewController: UIViewController {
     // MARK: -- SetUpViewsLayout
     
     // MARK: -- UI
+    
 }
