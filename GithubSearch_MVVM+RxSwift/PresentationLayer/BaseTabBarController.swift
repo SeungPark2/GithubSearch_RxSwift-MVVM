@@ -37,8 +37,9 @@ class BaseTabBarController: UITabBarController {
         let githubViewModel = GithubSearchViewModel(useCase: githubUseCase)
         let githubViewController = GithubSearchViewController(viewModel: githubViewModel)
         searchNavigationController = UINavigationController(rootViewController: githubViewController)
+        searchNavigationController.navigationBar.backgroundColor = Color.DarkGray.RGB64
         searchNavigationController.tabBarItem = UITabBarItem(
-            title: "검색",
+            title: "Search",
             image: UIImage(systemName: "magnifyingglass"),
             tag: 0
         )
@@ -47,8 +48,9 @@ class BaseTabBarController: UITabBarController {
         let profileViewModel = ProfileViewModel(useCase: profileUseCase)
         let profileViewController = ProfileViewController(viewModel: profileViewModel)
         profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        profileNavigationController.navigationBar.backgroundColor = Color.DarkGray.RGB64
         profileNavigationController.tabBarItem = UITabBarItem(
-            title: "프로필",
+            title: "Profile",
             image: UIImage(systemName: "person.fill"),
             tag: 1
         )
@@ -56,7 +58,7 @@ class BaseTabBarController: UITabBarController {
     }
     
     private func setUpTabBarColors() {
-        tabBar.backgroundColor = #colorLiteral(red: 0.8717923164, green: 0.887203455, blue: 0.9008760452, alpha: 1)
+        tabBar.backgroundColor = Color.DarkGray.RGB64
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .lightGray
     }

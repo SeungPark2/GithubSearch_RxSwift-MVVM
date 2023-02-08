@@ -37,5 +37,6 @@ final class ProfileViewModel: ViewModelType {
 extension ProfileViewModel {
     
     func transform(from action: Action) -> State {
+        return State()
     }
 }

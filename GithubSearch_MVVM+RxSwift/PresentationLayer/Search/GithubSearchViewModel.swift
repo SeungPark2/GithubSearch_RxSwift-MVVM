@@ -40,5 +40,6 @@ final class GithubSearchViewModel: ViewModelType {
 extension GithubSearchViewModel {
     
     func transform(from action: Action) -> State {
+        return State()
     }
 }
