@@ -37,6 +37,10 @@
 		01A8B5252993E83600796D1E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B5242993E83600796D1E /* RxSwift */; };
 		01A8B5282993E84000796D1E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B5272993E84000796D1E /* SnapKit */; };
 		01A8B52B2993E84D00796D1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 01A8B52A2993E84D00796D1E /* Kingfisher */; };
+		01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5542995106800796D1E /* RepositoryDTO.swift */; };
+		01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B556299511E400796D1E /* OwnerDTO.swift */; };
+		01A8B5592995218900796D1E /* LicenseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5582995218900796D1E /* LicenseDTO.swift */; };
+		01A8B55B299525DF00796D1E /* RepositorySearchDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B55A299525DF00796D1E /* RepositorySearchDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,10 @@
 		01A8B5182993D80D00796D1E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		01A8B51A2993D95D00796D1E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		01A8B51D2993DB2D00796D1E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		01A8B5542995106800796D1E /* RepositoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDTO.swift; sourceTree = "<group>"; };
+		01A8B556299511E400796D1E /* OwnerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDTO.swift; sourceTree = "<group>"; };
+		01A8B5582995218900796D1E /* LicenseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDTO.swift; sourceTree = "<group>"; };
+		01A8B55A299525DF00796D1E /* RepositorySearchDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +216,10 @@
 		01A8B4D32993A82000796D1E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B55A299525DF00796D1E /* RepositorySearchDTO.swift */,
+				01A8B5542995106800796D1E /* RepositoryDTO.swift */,
+				01A8B556299511E400796D1E /* OwnerDTO.swift */,
+				01A8B5582995218900796D1E /* LicenseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -475,10 +487,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A8B5072993BA8F00796D1E /* GithubSearchRepository.swift in Sources */,
+				01A8B5592995218900796D1E /* LicenseDTO.swift in Sources */,
 				01A8B5152993D6B400796D1E /* RepositoryTableViewCell.swift in Sources */,
 				01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */,
 				01A8B5052993BA8400796D1E /* GithubSearchUseCase.swift in Sources */,
+				01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */,
 				01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */,
+				01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */,
 				01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
 				01A8B51E2993DB2D00796D1E /* UIView+Extension.swift in Sources */,
@@ -490,6 +505,7 @@
 				01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */,
 				01A8B5132993CE7500796D1E /* ProfileViewModel.swift in Sources */,
 				01A8B4E32993B39800796D1E /* User.swift in Sources */,
+				01A8B55B299525DF00796D1E /* RepositorySearchDTO.swift in Sources */,
 				01266B1F2992779600FACA75 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
