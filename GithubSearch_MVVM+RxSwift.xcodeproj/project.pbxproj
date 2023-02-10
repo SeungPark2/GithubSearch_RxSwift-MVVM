@@ -45,6 +45,14 @@
 		01A8B564299656E300796D1E /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B563299656E300796D1E /* Owner.swift */; };
 		01A8B566299656E800796D1E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B565299656E800796D1E /* License.swift */; };
 		01A8B56A299661C700796D1E /* RepositorySectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B569299661C700796D1E /* RepositorySectionData.swift */; };
+		01A8B56C299665F400796D1E /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B56B299665F400796D1E /* TargetType.swift */; };
+		01A8B5702996661200796D1E /* GithubSearchRepositoryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B56F2996661200796D1E /* GithubSearchRepositoryTarget.swift */; };
+		01A8B5732996664E00796D1E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5722996664E00796D1E /* HTTPMethod.swift */; };
+		01A8B577299667C000796D1E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B576299667C000796D1E /* APIError.swift */; };
+		01A8B5792996683600796D1E /* APILog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5782996683600796D1E /* APILog.swift */; };
+		01A8B57B2996685400796D1E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B57A2996685400796D1E /* NetworkService.swift */; };
+		01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B57E29969FB300796D1E /* APIPrefix.swift */; };
+		01A8B5812996A27300796D1E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5802996A27300796D1E /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +107,14 @@
 		01A8B563299656E300796D1E /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		01A8B565299656E800796D1E /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		01A8B569299661C700796D1E /* RepositorySectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySectionData.swift; sourceTree = "<group>"; };
+		01A8B56B299665F400796D1E /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		01A8B56F2996661200796D1E /* GithubSearchRepositoryTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchRepositoryTarget.swift; sourceTree = "<group>"; };
+		01A8B5722996664E00796D1E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		01A8B576299667C000796D1E /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		01A8B5782996683600796D1E /* APILog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILog.swift; sourceTree = "<group>"; };
+		01A8B57A2996685400796D1E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		01A8B57E29969FB300796D1E /* APIPrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPrefix.swift; sourceTree = "<group>"; };
+		01A8B5802996A27300796D1E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +234,9 @@
 		01A8B4D22993A7CD00796D1E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B56E2996660700796D1E /* Base */,
+				01A8B5712996661800796D1E /* Foundation */,
+				01A8B56D299665FF00796D1E /* Target */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -332,6 +351,7 @@
 		01A8B4DE2993A95B00796D1E /* Literals */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B5802996A27300796D1E /* ErrorMessage.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -357,6 +377,34 @@
 				01A8B569299661C700796D1E /* RepositorySectionData.swift */,
 			);
 			path = DataSrouceSectionData;
+			sourceTree = "<group>";
+		};
+		01A8B56D299665FF00796D1E /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B56F2996661200796D1E /* GithubSearchRepositoryTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		01A8B56E2996660700796D1E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B57A2996685400796D1E /* NetworkService.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		01A8B5712996661800796D1E /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B576299667C000796D1E /* APIError.swift */,
+				01A8B5782996683600796D1E /* APILog.swift */,
+				01A8B56B299665F400796D1E /* TargetType.swift */,
+				01A8B5722996664E00796D1E /* HTTPMethod.swift */,
+				01A8B57E29969FB300796D1E /* APIPrefix.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A8B5072993BA8F00796D1E /* GithubSearchRepository.swift in Sources */,
+				01A8B5812996A27300796D1E /* ErrorMessage.swift in Sources */,
 				01A8B5592995218900796D1E /* LicenseDTO.swift in Sources */,
 				01A8B5152993D6B400796D1E /* RepositoryTableViewCell.swift in Sources */,
 				01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */,
@@ -514,12 +563,18 @@
 				01A8B5622996530300796D1E /* Repository.swift in Sources */,
 				01A8B564299656E300796D1E /* Owner.swift in Sources */,
 				01A8B56A299661C700796D1E /* RepositorySectionData.swift in Sources */,
+				01A8B56C299665F400796D1E /* TargetType.swift in Sources */,
+				01A8B5702996661200796D1E /* GithubSearchRepositoryTarget.swift in Sources */,
 				01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */,
 				01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */,
 				01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */,
 				01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */,
 				01A8B566299656E800796D1E /* License.swift in Sources */,
+				01A8B5792996683600796D1E /* APILog.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
+				01A8B5732996664E00796D1E /* HTTPMethod.swift in Sources */,
+				01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */,
+				01A8B57B2996685400796D1E /* NetworkService.swift in Sources */,
 				01A8B51E2993DB2D00796D1E /* UIView+Extension.swift in Sources */,
 				01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */,
 				01A8B5192993D80D00796D1E /* Color.swift in Sources */,
@@ -528,6 +583,7 @@
 				01A8B5032993B9D700796D1E /* ViewModelType.swift in Sources */,
 				01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */,
 				01A8B5132993CE7500796D1E /* ProfileViewModel.swift in Sources */,
+				01A8B577299667C000796D1E /* APIError.swift in Sources */,
 				01A8B4E32993B39800796D1E /* User.swift in Sources */,
 				01A8B55B299525DF00796D1E /* RepositorySearchResultDTO.swift in Sources */,
 				01266B1F2992779600FACA75 /* SceneDelegate.swift in Sources */,

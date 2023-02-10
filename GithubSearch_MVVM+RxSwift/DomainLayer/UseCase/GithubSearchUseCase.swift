@@ -29,6 +29,7 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     private var errMsgRelay = PublishRelay<String?>()
     private var repositoriesRelay = PublishRelay<[Repository]>()
     private var page: Int = 1
+    private var isLastedPage: Bool = false
     private var disposeBag = DisposeBag()
     
     // MARK: -- Initalize
@@ -45,11 +46,11 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     func searchRepository(with keyword: String) {
         repository.searchRepository(with: keyword, page: page)
             .subscribe(
-                onNext: { repositoryDTO in
-                    
+                onNext: { [weak self] repositorySearchResultDTO in
+                    self?.repositoriesRelay.accept(repositorySearchResultDTO.repositories.map { $0.toDomain() })
                 },
-                onError: { err in
-                    
+                onError: { [weak self] err in
+                    self?.errMsgRelay.accept((err as? APIError)?.description)
                 }
             )
             .disposed(by: disposeBag)

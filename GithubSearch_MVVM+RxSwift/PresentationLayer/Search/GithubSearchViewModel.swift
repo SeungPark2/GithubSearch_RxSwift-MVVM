@@ -61,7 +61,7 @@ extension GithubSearchViewModel {
             keyword: keyword.asDriver(onErrorJustReturn: ""),
             repositories: repositories.asDriver(onErrorJustReturn: [])
         )
-        bindState()
+        bindUseCaseState()
         
         action.typingKeyword
             .asObservable()
@@ -88,7 +88,7 @@ extension GithubSearchViewModel {
         return state
     }
     
-    private func bindState() {
+    private func bindUseCaseState() {
         useCase.errMsg
             .filter { $0 != nil }
             .asObservable()
