@@ -44,6 +44,7 @@
 		01A8B5622996530300796D1E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5612996530300796D1E /* Repository.swift */; };
 		01A8B564299656E300796D1E /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B563299656E300796D1E /* Owner.swift */; };
 		01A8B566299656E800796D1E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B565299656E800796D1E /* License.swift */; };
+		01A8B56A299661C700796D1E /* RepositorySectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B569299661C700796D1E /* RepositorySectionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		01A8B5612996530300796D1E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		01A8B563299656E300796D1E /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		01A8B565299656E800796D1E /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		01A8B569299661C700796D1E /* RepositorySectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySectionData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */,
+				01A8B568299661BA00796D1E /* DataSrouceSectionData */,
 				01A8B4D62993A84000796D1E /* Profile */,
 				01A8B4D52993A83800796D1E /* Search */,
 			);
@@ -346,6 +349,14 @@
 				01A8B51D2993DB2D00796D1E /* UIView+Extension.swift */,
 			);
 			path = "UI+";
+			sourceTree = "<group>";
+		};
+		01A8B568299661BA00796D1E /* DataSrouceSectionData */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B569299661C700796D1E /* RepositorySectionData.swift */,
+			);
+			path = DataSrouceSectionData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +513,7 @@
 				01A8B5052993BA8400796D1E /* GithubSearchUseCase.swift in Sources */,
 				01A8B5622996530300796D1E /* Repository.swift in Sources */,
 				01A8B564299656E300796D1E /* Owner.swift in Sources */,
+				01A8B56A299661C700796D1E /* RepositorySectionData.swift in Sources */,
 				01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */,
 				01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */,
 				01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */,

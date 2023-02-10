@@ -28,6 +28,6 @@ final class ProfileUseCase: ProfileUseCaseProtocol {
     // MARK: -- Methods
     
     func searchRepository(with keyword: String) {
-        <#code#>
+        
     }
 }

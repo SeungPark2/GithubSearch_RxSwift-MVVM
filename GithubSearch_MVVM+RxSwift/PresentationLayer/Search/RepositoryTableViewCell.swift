@@ -35,7 +35,7 @@ final class RepositoryTableViewCell: UITableViewCell {
     
     // MARK: -- Methods
     
-    func updateContents() {
+    func updateContents(with repository: Repository) {
         
     }
     

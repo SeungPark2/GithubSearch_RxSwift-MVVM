@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import RxDataSources
 import RxSwift
 
 final class GithubSearchViewController: UIViewController {
@@ -17,6 +18,16 @@ final class GithubSearchViewController: UIViewController {
     
     private let viewModel: GithubSearchViewModel
     private let disposeBag = DisposeBag()
+    private let repositoryDataSource = RxTableViewSectionedReloadDataSource<RepositorySectionData>(
+        configureCell: { dataSource, tableView, indexPath, repository in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.identifier, for: indexPath) as? RepositoryTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.updateContents(with: repository)
+            return cell
+        }
+    )
     
     // MARK: -- Initalize
     
@@ -41,6 +52,7 @@ final class GithubSearchViewController: UIViewController {
         updateNavigationTiTle()
         setUpNavigationBarAndTabBar()
         view.backgroundColor = Color.DarkGray.RGB64
+        bindViewModel()
     }
     
     // MARK: -- Methods
@@ -161,7 +173,8 @@ extension GithubSearchViewController {
         
         state.repositories
             .asObservable()
-            .bind(to: repositoryTableView.rx.items(dataSource: <#T##RxTableViewDataSourceType & UITableViewDataSource#>))
+            .map { [RepositorySectionData(items: $0)] }
+            .bind(to: repositoryTableView.rx.items(dataSource: repositoryDataSource))
             .disposed(by: disposeBag)
     }
 }

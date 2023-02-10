@@ -22,6 +22,5 @@ final class GithubSearchRepository: GithubSearchRepositoryProtocol {
     // MARK: -- Methods
     
     func searchRepository(with keyword: String, page: Int) -> Observable<RepositoryDTO> {
-        
     }
 }

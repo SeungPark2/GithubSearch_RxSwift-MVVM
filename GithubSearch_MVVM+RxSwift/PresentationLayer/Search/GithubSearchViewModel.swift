@@ -61,6 +61,7 @@ extension GithubSearchViewModel {
             keyword: keyword.asDriver(onErrorJustReturn: ""),
             repositories: repositories.asDriver(onErrorJustReturn: [])
         )
+        bindState()
         
         action.typingKeyword
             .asObservable()
