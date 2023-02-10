@@ -40,7 +40,10 @@
 		01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5542995106800796D1E /* RepositoryDTO.swift */; };
 		01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B556299511E400796D1E /* OwnerDTO.swift */; };
 		01A8B5592995218900796D1E /* LicenseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5582995218900796D1E /* LicenseDTO.swift */; };
-		01A8B55B299525DF00796D1E /* RepositorySearchDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B55A299525DF00796D1E /* RepositorySearchDTO.swift */; };
+		01A8B55B299525DF00796D1E /* RepositorySearchResultDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B55A299525DF00796D1E /* RepositorySearchResultDTO.swift */; };
+		01A8B5622996530300796D1E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5612996530300796D1E /* Repository.swift */; };
+		01A8B564299656E300796D1E /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B563299656E300796D1E /* Owner.swift */; };
+		01A8B566299656E800796D1E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B565299656E800796D1E /* License.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +93,10 @@
 		01A8B5542995106800796D1E /* RepositoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDTO.swift; sourceTree = "<group>"; };
 		01A8B556299511E400796D1E /* OwnerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDTO.swift; sourceTree = "<group>"; };
 		01A8B5582995218900796D1E /* LicenseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseDTO.swift; sourceTree = "<group>"; };
-		01A8B55A299525DF00796D1E /* RepositorySearchDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchDTO.swift; sourceTree = "<group>"; };
+		01A8B55A299525DF00796D1E /* RepositorySearchResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchResultDTO.swift; sourceTree = "<group>"; };
+		01A8B5612996530300796D1E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		01A8B563299656E300796D1E /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		01A8B565299656E800796D1E /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +222,7 @@
 		01A8B4D32993A82000796D1E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				01A8B55A299525DF00796D1E /* RepositorySearchDTO.swift */,
+				01A8B55A299525DF00796D1E /* RepositorySearchResultDTO.swift */,
 				01A8B5542995106800796D1E /* RepositoryDTO.swift */,
 				01A8B556299511E400796D1E /* OwnerDTO.swift */,
 				01A8B5582995218900796D1E /* LicenseDTO.swift */,
@@ -227,8 +233,8 @@
 		01A8B4D42993A82900796D1E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				01A8B5062993BA8F00796D1E /* GithubSearchRepository.swift */,
 				01A8B50E2993CE6400796D1E /* ProfileRepository.swift */,
+				01A8B5062993BA8F00796D1E /* GithubSearchRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -256,6 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				01A8B4E22993B39800796D1E /* User.swift */,
+				01A8B5612996530300796D1E /* Repository.swift */,
+				01A8B563299656E300796D1E /* Owner.swift */,
+				01A8B565299656E800796D1E /* License.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,8 +272,8 @@
 		01A8B4D82993A85D00796D1E /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				01A8B5042993BA8400796D1E /* GithubSearchUseCase.swift */,
 				01A8B5102993CE6F00796D1E /* ProfileUseCase.swift */,
+				01A8B5042993BA8400796D1E /* GithubSearchUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -491,10 +500,13 @@
 				01A8B5152993D6B400796D1E /* RepositoryTableViewCell.swift in Sources */,
 				01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */,
 				01A8B5052993BA8400796D1E /* GithubSearchUseCase.swift in Sources */,
+				01A8B5622996530300796D1E /* Repository.swift in Sources */,
+				01A8B564299656E300796D1E /* Owner.swift in Sources */,
 				01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */,
 				01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */,
 				01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */,
 				01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */,
+				01A8B566299656E800796D1E /* License.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
 				01A8B51E2993DB2D00796D1E /* UIView+Extension.swift in Sources */,
 				01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */,
@@ -505,7 +517,7 @@
 				01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */,
 				01A8B5132993CE7500796D1E /* ProfileViewModel.swift in Sources */,
 				01A8B4E32993B39800796D1E /* User.swift in Sources */,
-				01A8B55B299525DF00796D1E /* RepositorySearchDTO.swift in Sources */,
+				01A8B55B299525DF00796D1E /* RepositorySearchResultDTO.swift in Sources */,
 				01266B1F2992779600FACA75 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

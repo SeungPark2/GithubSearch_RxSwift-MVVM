@@ -1,5 +1,5 @@
 //
-//  RepositorySearchDTO.swift
+//  RepositorySearchResultDTO.swift
 //  GithubSearch_MVVM+RxSwift
 //
 //  Created by 박승태 on 2023/02/09.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositorySearchDTO: Codable {
+struct RepositorySearchResultDTO: Codable {
     let total_count: Int
     let incomplete_results: Bool
     let repositories: [RepositoryDTO]

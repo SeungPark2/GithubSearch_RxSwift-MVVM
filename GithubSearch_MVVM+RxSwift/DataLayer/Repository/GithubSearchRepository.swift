@@ -7,8 +7,10 @@
 
 import Foundation
 
+import RxSwift
+
 protocol GithubSearchRepositoryProtocol: AnyObject {
-    
+    func searchRepository(with keyword: String, page: Int) -> Observable<RepositoryDTO>
 }
 
 final class GithubSearchRepository: GithubSearchRepositoryProtocol {
@@ -18,4 +20,8 @@ final class GithubSearchRepository: GithubSearchRepositoryProtocol {
     // MARK: -- Initalize
     
     // MARK: -- Methods
+    
+    func searchRepository(with keyword: String, page: Int) -> Observable<RepositoryDTO> {
+        
+    }
 }

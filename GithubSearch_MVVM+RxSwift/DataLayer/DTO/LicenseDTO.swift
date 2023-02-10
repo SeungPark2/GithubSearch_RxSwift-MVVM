@@ -35,3 +35,10 @@ struct LicenseDTO: Codable {
         node_id = ""
     }
 }
+
+extension LicenseDTO {
+    
+    func toDomain() -> License {
+        License(key: key, name: name, url: url)
+    }
+}

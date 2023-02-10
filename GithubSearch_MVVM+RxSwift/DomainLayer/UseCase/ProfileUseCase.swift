@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProfileUseCaseProtocol {
-    
+    func searchRepository(with keyword: String)
 }
 
 final class ProfileUseCase: ProfileUseCaseProtocol {
@@ -26,4 +26,8 @@ final class ProfileUseCase: ProfileUseCaseProtocol {
     }
     
     // MARK: -- Methods
+    
+    func searchRepository(with keyword: String) {
+        <#code#>
+    }
 }

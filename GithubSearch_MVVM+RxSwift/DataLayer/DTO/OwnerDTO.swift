@@ -75,3 +75,10 @@ struct OwnerDTO: Codable {
         site_admin = false
     }
 }
+
+extension OwnerDTO {
+    
+    func toDomain() -> Owner {
+        Owner(id: id, profileImageURL: avatar_url, type: type)
+    }
+}

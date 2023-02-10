@@ -11,7 +11,7 @@ import SnapKit
 import Then
 import RxSwift
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     // MARK: -- Properties
     

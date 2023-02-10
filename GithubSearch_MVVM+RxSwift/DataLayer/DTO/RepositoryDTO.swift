@@ -46,3 +46,24 @@ struct RepositoryDTO: Codable {
         visibility = (try? container.decode(String.self, forKey: .visibility)) ?? ""
     }
 }
+
+extension RepositoryDTO {
+    
+    func toDomain() -> Repository {
+        Repository(
+            id: id,
+            name: name,
+            nameWithOwnerName: full_name,
+            owner: owner.toDomain(),
+            description: description,
+            htmlURL: html_url,
+            updatedTime: updated_at,
+            size: size,
+            starCount: stargazers_count,
+            language: language,
+            license: license.toDomain(),
+            topics: topics,
+            visibility: visibility
+        )
+    }
+}

@@ -11,7 +11,7 @@ import SnapKit
 import Then
 import RxSwift
 
-class GithubSearchViewController: UIViewController {
+final class GithubSearchViewController: UIViewController {
     
     // MARK: -- Properties
     
@@ -107,5 +107,61 @@ class GithubSearchViewController: UIViewController {
     private let loadingIndicatorView = UIActivityIndicatorView().then {
         $0.style = .large
         $0.tintColor = .white
+    }
+}
+
+// MARK: -- Bind ViewModel
+
+extension GithubSearchViewController {
+    
+    private func bindViewModel() {
+        let searchDidTap = searchController.searchBar.rx.searchButtonClicked.map { [weak self] _ in
+            self?.searchController.searchBar.searchTextField.text ?? ""
+        }.asDriver(onErrorJustReturn: "")
+        
+        let loadNextPage = repositoryTableView.rx.contentOffset.filter { [weak self] offset in
+            guard let `self` = self else { return false }
+            guard self.repositoryTableView.frame.height > 0 else { return false }
+            return offset.y + self.repositoryTableView.frame.height >= self.repositoryTableView.contentSize.height - 50
+        }.map { [weak self] _ in
+            self?.searchController.searchBar.searchTextField.text ?? ""
+        }.asDriver(onErrorJustReturn: "")
+        
+        let action = GithubSearchViewModel.Action(
+            navigationRightButtonDidTap: navigationRightLoginButton.rx.tap.asDriver(),
+            typingKeyword: searchController.searchBar.searchTextField.rx.text.map { $0 ?? "" }.asDriver(onErrorJustReturn: ""),
+            searchDidTap: searchDidTap,
+            cancelDidTap: searchController.searchBar.rx.cancelButtonClicked.asDriver(),
+            loadNextPage: loadNextPage
+        )
+        
+        let state = viewModel.transform(from: action)
+        
+        state.isHiddenLoadingView
+            .asObservable()
+            .bind { [weak self] isHidden in
+                isHidden ? self?.loadingIndicatorView.stopAnimating() : self?.loadingIndicatorView.startAnimating()
+                self?.loadingIndicatorView.isHidden = isHidden
+            }
+            .disposed(by: disposeBag)
+        
+        state.errMsg
+            .asObservable()
+            .bind { [weak self] errMsg in
+                
+            }
+            .disposed(by: disposeBag)
+        
+        state.keyword
+            .asObservable()
+            .bind { [weak self] keyword in
+                self?.searchController.searchBar.text = keyword
+            }
+            .disposed(by: disposeBag)
+        
+        state.repositories
+            .asObservable()
+            .bind(to: repositoryTableView.rx.items(dataSource: <#T##RxTableViewDataSourceType & UITableViewDataSource#>))
+            .disposed(by: disposeBag)
     }
 }
