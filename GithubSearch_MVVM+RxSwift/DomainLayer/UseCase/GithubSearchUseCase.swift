@@ -44,6 +44,8 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     // MARK: -- Methods
     
     func searchRepository(with keyword: String) {
+        guard !keyword.isEmpty else { return }
+        
         repository.searchRepository(with: keyword, page: page)
             .subscribe(
                 onNext: { [weak self] repositorySearchResultDTO in
@@ -54,5 +56,11 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
                 }
             )
             .disposed(by: disposeBag)
+    }
+    
+    private func checkLastedPage(totalCount: Int) {
+        let ddsddss = repositories.asObservable().values.map { $0 }
+        
+        isLastedPage = page * 10 >= totalCount
     }
 }

@@ -14,8 +14,19 @@ enum GithubSearchRepositoryTarget {
 extension GithubSearchRepositoryTarget: TargetType {
     var path: String {
         switch self {
+        case .searchRepository:
+            return API.Root.search + API.EndPoint.repositories
+        }
+    }
+    
+    var queries: [String : Any] {
+        switch self {
         case .searchRepository(let keyword, let page):
-            return API.Root.search + API.EndPoint.repositories + "q=\(keyword)&page=\(page)&per_page=10"
+            return [
+                "q": keyword,
+                "page": page,
+                "per_page": 10
+            ]
         }
     }
     
