@@ -53,6 +53,8 @@
 		01A8B57B2996685400796D1E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B57A2996685400796D1E /* NetworkService.swift */; };
 		01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B57E29969FB300796D1E /* APIPrefix.swift */; };
 		01A8B5812996A27300796D1E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5802996A27300796D1E /* ErrorMessage.swift */; };
+		01A8B583299BDB6C00796D1E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B582299BDB6C00796D1E /* UIViewController+Extension.swift */; };
+		01A8B587299C3B5B00796D1E /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B586299C3B5B00796D1E /* StringLiterals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		01A8B57A2996685400796D1E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		01A8B57E29969FB300796D1E /* APIPrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPrefix.swift; sourceTree = "<group>"; };
 		01A8B5802996A27300796D1E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		01A8B582299BDB6C00796D1E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		01A8B586299C3B5B00796D1E /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B5802996A27300796D1E /* ErrorMessage.swift */,
+				01A8B586299C3B5B00796D1E /* StringLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B51D2993DB2D00796D1E /* UIView+Extension.swift */,
+				01A8B582299BDB6C00796D1E /* UIViewController+Extension.swift */,
 			);
 			path = "UI+";
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				01A8B5812996A27300796D1E /* ErrorMessage.swift in Sources */,
 				01A8B5592995218900796D1E /* LicenseDTO.swift in Sources */,
 				01A8B5152993D6B400796D1E /* RepositoryTableViewCell.swift in Sources */,
+				01A8B583299BDB6C00796D1E /* UIViewController+Extension.swift in Sources */,
 				01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */,
 				01A8B5052993BA8400796D1E /* GithubSearchUseCase.swift in Sources */,
 				01A8B5622996530300796D1E /* Repository.swift in Sources */,
@@ -571,6 +578,7 @@
 				01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */,
 				01A8B566299656E800796D1E /* License.swift in Sources */,
 				01A8B5792996683600796D1E /* APILog.swift in Sources */,
+				01A8B587299C3B5B00796D1E /* StringLiterals.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
 				01A8B5732996664E00796D1E /* HTTPMethod.swift in Sources */,
 				01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */,

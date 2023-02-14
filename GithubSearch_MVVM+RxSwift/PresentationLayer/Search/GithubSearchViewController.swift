@@ -59,7 +59,7 @@ final class GithubSearchViewController: UIViewController {
     // MARK: -- Methods
     
     private func updateNavigationTiTle() {
-        navigationItem.title = "search"
+        navigationItem.title = StringLiterals.Title.search
     }
     
     private func setUpNavigationBarAndTabBar() {
@@ -103,12 +103,12 @@ final class GithubSearchViewController: UIViewController {
     }
     
     private let searchController = UISearchController(searchResultsController: nil).then {
-        $0.searchBar.placeholder = "검색어 입력"
-        $0.searchBar.setValue("취소", forKey: "cancelButtonText")
+        $0.searchBar.placeholder = StringLiterals.Placeholder.keywordInput
+        $0.searchBar.setValue(StringLiterals.Common.cancel, forKey: StringLiterals.Key.cancelButtonText)
         $0.searchBar.tintColor = .black
         $0.searchBar.searchTextField.leftView?.tintColor = .lightGray
         $0.searchBar.searchTextField.textColor = .black
-        $0.searchBar.searchTextField.accessibilityIdentifier = "searchBarTextField"
+        $0.searchBar.searchTextField.accessibilityIdentifier = StringLiterals.Identifier.searchBarTextField
     }
     
     private let repositoryTableView = UITableView().then {
@@ -155,6 +155,7 @@ extension GithubSearchViewController {
         
         state.isHiddenLoadingView
             .asObservable()
+            .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .bind { vc, isHidden in
                 isHidden ? vc.loadingIndicatorView.stopAnimating() : vc.loadingIndicatorView.startAnimating()
@@ -164,13 +165,19 @@ extension GithubSearchViewController {
         
         state.errMsg
             .asObservable()
-            .bind { [weak self] errMsg in
-                
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .bind { vc, errMsg in
+                vc.showAlertPopup(
+                    message: errMsg,
+                    buttons: [UIAlertAction(title: StringLiterals.Common.ok, style: .cancel)]
+                )
             }
             .disposed(by: disposeBag)
         
         state.keyword
             .asObservable()
+            .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .bind { vc, keyword in
                 vc.searchController.searchBar.text = keyword
