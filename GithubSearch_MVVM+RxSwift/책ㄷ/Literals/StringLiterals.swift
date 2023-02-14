@@ -7,25 +7,25 @@
 
 import Foundation
 
-enum StringLiterals {
-    enum Common: String {
-        case ok                   = "확인"
-        case cancel               = "취소"
+struct StringLiterals {
+    struct Common {
+        static let ok: String                   = "확인"
+        static let cancel: String               = "취소"
     }
     
-    enum Title: String {
-        case search               = "search"
+    struct Title {
+        static let search: String               = "search"
     }
     
-    enum Placeholder: String {
-        case keywordInput        = "검색어 입력"
+    struct Placeholder {
+        static let keywordInput: String         = "검색어 입력"
     }
     
-    enum Identifier: String {
-        case searchBarTextField   = "searchBarTextField"
+    struct Identifier {
+        static let searchBarTextField: String   = "searchBarTextField"
     }
     
-    enum Key: String {
-        case cancelButtonText     = "cancelButtonText"
+    struct Key {
+        static let cancelButtonText: String     = "cancelButtonText"
     }
 }
