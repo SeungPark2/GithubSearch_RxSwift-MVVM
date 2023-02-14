@@ -27,9 +27,10 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     private let repository: GithubSearchRepositoryProtocol
     private let user: User
     private var errMsgRelay = PublishRelay<String?>()
-    private var repositoriesRelay = PublishRelay<[Repository]>()
+    private var repositoriesRelay = BehaviorRelay<[Repository]>(value: [])
     private var page: Int = 1
     private var isLastedPage: Bool = false
+    private var isLoadingRepositories: Bool = false
     private var disposeBag = DisposeBag()
     
     // MARK: -- Initalize
@@ -44,23 +45,27 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     // MARK: -- Methods
     
     func searchRepository(with keyword: String) {
-        guard !keyword.isEmpty else { return }
+        guard !keyword.isEmpty, !isLoadingRepositories, !isLastedPage else { return }
+        
+        isLoadingRepositories = true
         
         repository.searchRepository(with: keyword, page: page)
             .subscribe(
                 onNext: { [weak self] repositorySearchResultDTO in
-                    self?.repositoriesRelay.accept(repositorySearchResultDTO.repositories.map { $0.toDomain() })
+                    let repositories = self?.repositoriesRelay.value ?? []
+                    self?.repositoriesRelay.accept(repositories + repositorySearchResultDTO.repositories.map { $0.toDomain() })
+                    self?.isLoadingRepositories = false
+                    self?.checkLastedPage(totalCount: repositorySearchResultDTO.total_count)
                 },
                 onError: { [weak self] err in
                     self?.errMsgRelay.accept((err as? APIError)?.description)
+                    self?.isLoadingRepositories = false
                 }
             )
             .disposed(by: disposeBag)
     }
     
     private func checkLastedPage(totalCount: Int) {
-        let ddsddss = repositories.asObservable().values.map { $0 }
-        
         isLastedPage = page * 10 >= totalCount
     }
 }

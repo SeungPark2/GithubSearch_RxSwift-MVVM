@@ -11,6 +11,7 @@ import SnapKit
 import Then
 import RxDataSources
 import RxSwift
+import RxCocoa
 
 final class GithubSearchViewController: UIViewController {
     
@@ -132,13 +133,15 @@ extension GithubSearchViewController {
             self?.searchController.searchBar.searchTextField.text ?? ""
         }.asDriver(onErrorJustReturn: "")
         
-        let loadNextPage = repositoryTableView.rx.contentOffset.filter { [weak self] offset in
-            guard let `self` = self else { return false }
-            guard self.repositoryTableView.frame.height > 0 else { return false }
-            return offset.y + self.repositoryTableView.frame.height >= self.repositoryTableView.contentSize.height - 50
-        }.map { [weak self] _ in
-            self?.searchController.searchBar.searchTextField.text ?? ""
-        }.asDriver(onErrorJustReturn: "")
+        let loadNextPage = repositoryTableView.rx.prefetchRows
+            .compactMap(\.last?.row)
+            .withUnretained(self)
+            .filter { vc, row in
+                return (row + 1) % 10 == 0 || row == (vc.repositoryDataSource.sectionModels.first?.items.count ?? 1) - 1
+            }
+            .map { [weak self] _ in
+                self?.searchController.searchBar.searchTextField.text ?? ""
+            }.asDriver(onErrorJustReturn: "")
         
         let action = GithubSearchViewModel.Action(
             navigationRightButtonDidTap: navigationRightLoginButton.rx.tap.asDriver(),
@@ -152,9 +155,10 @@ extension GithubSearchViewController {
         
         state.isHiddenLoadingView
             .asObservable()
-            .bind { [weak self] isHidden in
-                isHidden ? self?.loadingIndicatorView.stopAnimating() : self?.loadingIndicatorView.startAnimating()
-                self?.loadingIndicatorView.isHidden = isHidden
+            .withUnretained(self)
+            .bind { vc, isHidden in
+                isHidden ? vc.loadingIndicatorView.stopAnimating() : vc.loadingIndicatorView.startAnimating()
+                vc.loadingIndicatorView.isHidden = isHidden
             }
             .disposed(by: disposeBag)
         
@@ -167,8 +171,9 @@ extension GithubSearchViewController {
         
         state.keyword
             .asObservable()
-            .bind { [weak self] keyword in
-                self?.searchController.searchBar.text = keyword
+            .withUnretained(self)
+            .bind { vc, keyword in
+                vc.searchController.searchBar.text = keyword
             }
             .disposed(by: disposeBag)
         
