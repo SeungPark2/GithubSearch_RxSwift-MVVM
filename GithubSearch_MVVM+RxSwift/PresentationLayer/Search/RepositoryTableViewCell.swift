@@ -25,6 +25,7 @@ final class RepositoryTableViewCell: UITableViewCell {
         addViews()
         setUpViewsLayout()
         updateViewsCornerRound()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +37,13 @@ final class RepositoryTableViewCell: UITableViewCell {
     // MARK: -- Methods
     
     func updateContents(with repository: Repository) {
-        
+        downloadImage(with: repository.owner.profileImageURL)
+        repositoryAndOwnerNameLabel.text = repository.nameWithOwnerName
+        repositoryDescriptionLabel.text = repository.description
+        starCountLabel.text = "\(repository.starCount)"
+        languageLabel.text = repository.language
+        licenseLabel.text = repository.license.name
+        updateDateLabel.text = repository.updatedTime.description
     }
     
     private func downloadImage(with imageURL: String) {
@@ -54,7 +61,7 @@ final class RepositoryTableViewCell: UITableViewCell {
     // MARK: -- AddViews
     
     private func addViews() {
-        addSubViews(
+        contentView.addSubViews(
             ownerImageView, repositoryAndOwnerNameLabel, starButton,
             repositoryDescriptionLabel,
             starCountImageView, starCountLabel, languageColorView, languageLabel, licenseLabel, updateDateLabel
@@ -65,7 +72,8 @@ final class RepositoryTableViewCell: UITableViewCell {
     
     private func setUpViewsLayout() {
         ownerImageView.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(10)
             $0.width.height.equalTo(20)
         }
         
@@ -78,6 +86,7 @@ final class RepositoryTableViewCell: UITableViewCell {
         starButton.snp.makeConstraints {
             $0.centerY.equalTo(repositoryAndOwnerNameLabel)
             $0.trailing.equalToSuperview().inset(20)
+            $0.leading.equalTo(repositoryAndOwnerNameLabel.snp.trailing).offset(10)
             $0.width.height.equalTo(30)
         }
         
@@ -97,7 +106,7 @@ final class RepositoryTableViewCell: UITableViewCell {
         
         starCountLabel.snp.makeConstraints {
             $0.centerY.equalTo(starCountImageView)
-            $0.leading.equalTo(starCountLabel.snp.trailing).offset(4)
+            $0.leading.equalTo(starCountImageView.snp.trailing).offset(4)
             $0.width.lessThanOrEqualTo(40)
         }
         
@@ -123,7 +132,7 @@ final class RepositoryTableViewCell: UITableViewCell {
             $0.trailing.greaterThanOrEqualToSuperview().inset(20)
         }
         
-        layoutIfNeeded()
+        setNeedsLayout()
     }
     
     private func updateViewsCornerRound() {

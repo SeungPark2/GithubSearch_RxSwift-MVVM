@@ -91,7 +91,7 @@ final class GithubSearchViewController: UIViewController {
             $0.center.equalTo(repositoryTableView)
         }
         
-        view.layoutIfNeeded()
+        view.setNeedsLayout()
     }
     
     // MARK: -- UI
@@ -113,6 +113,7 @@ final class GithubSearchViewController: UIViewController {
     private let repositoryTableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = 100
+        $0.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 20)
         $0.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.identifier)
     }
     
@@ -174,6 +175,7 @@ extension GithubSearchViewController {
         state.repositories
             .asObservable()
             .map { [RepositorySectionData(items: $0)] }
+            .observe(on: MainScheduler.instance)
             .bind(to: repositoryTableView.rx.items(dataSource: repositoryDataSource))
             .disposed(by: disposeBag)
     }
