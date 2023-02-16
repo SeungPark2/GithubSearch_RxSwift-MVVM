@@ -34,7 +34,7 @@ class NetworkService<Target: TargetType>: NetworkServiceType, APILog {
         }
         
         guard let url = URL(string: urlString) else {
-            return .error(APIError.urlEncodingError)
+            return .error(APIError.urlEncodingFail)
         }
         
         var urlRequest = createURLRequest(url: url, target: target)
@@ -43,7 +43,7 @@ class NetworkService<Target: TargetType>: NetworkServiceType, APILog {
             do {
                 urlRequest.httpBody = try JSONSerialization.data(withJSONObject: target.params, options: [])
             } catch {
-                return .error(APIError.jsonEncodingError)
+                return .error(APIError.jsonEncodingFail)
             }
         }
         
@@ -53,14 +53,23 @@ class NetworkService<Target: TargetType>: NetworkServiceType, APILog {
                 self?.printRequestInfo(target: target, data: data, response: httpResponse)
             
                 guard let decodeData = try? JSONDecoder().decode(T.self, from: data) else {
-                    throw APIError.jsonDecodingError
+                    throw APIError.jsonDecodingFail
                 }
                 
-                guard 200..<300 ~= httpResponse.statusCode else {
-                    guard 500..<600 ~= httpResponse.statusCode else {
-                        throw APIError.failed(errCode: httpResponse.statusCode, message: "")
+                guard 200..<300 ~= httpResponse.statusCode || httpResponse.statusCode == 304 else {
+                    guard 300..<500 ~= httpResponse.statusCode else {
+                        throw APIError.serverNotConnected
                     }
-                    throw APIError.serverNotConnected
+                    
+                    if httpResponse.statusCode == 401 {
+                        throw APIError.tokenEmpty
+                    }
+                    
+                    if httpResponse.statusCode == 403 {
+                        throw APIError.invaildToken
+                    }
+                    
+                    throw APIError.failed(errCode: httpResponse.statusCode, message: "")
                 }
                 
                 return decodeData

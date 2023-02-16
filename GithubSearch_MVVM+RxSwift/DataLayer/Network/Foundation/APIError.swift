@@ -8,9 +8,10 @@
 import Foundation
 
 enum APIError: Error {
-    case urlEncodingError
-    case jsonEncodingError
-    case jsonDecodingError
+    case urlEncodingFail
+    case jsonEncodingFail
+    case jsonDecodingFail
+    case tokenEmpty
     case invaildToken
     case failed(errCode: Int, message: String)
     case serverNotConnected
@@ -20,10 +21,12 @@ extension APIError {
     
     var description: String {
         switch self {
-            case .urlEncodingError, .jsonEncodingError, .jsonDecodingError, .failed(_, _):
+            case .urlEncodingFail, .jsonEncodingFail, .jsonDecodingFail, .failed:
                 return ErrorMessage.failed
+            case .tokenEmpty:
+                return ErrorMessage.needToken
             case .invaildToken:
-                return ErrorMessage.invalidAPIToken
+                return ErrorMessage.invalidToken
             case .serverNotConnected:
                 return ErrorMessage.serverNotConnected
         }
