@@ -12,7 +12,7 @@ enum APIError: Error {
     case jsonEncodingFail
     case jsonDecodingFail
     case tokenEmpty
-    case invaildToken
+    case invaildToken(limitResetDate: Int64?)
     case failed(errCode: Int, message: String)
     case serverNotConnected
 }

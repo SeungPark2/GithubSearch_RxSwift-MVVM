@@ -11,7 +11,7 @@ struct ErrorMessage {
     static let failedAddStarRepository: String           = "스타 등록을 실패했습니다. \n다시 시도해주세요."
     static let failedRemoveStarRepository: String        = "스타 해제를 실패했습니다. \n다시 시도해주세요."
     
-    static let searchRateLimit: String                   = "현재 너무 잦은 검색으로 제한되었습니다. (30초 후 다시 시도해주세요.)\n" +
+    static let searchRateLimit: String                   = "현재 너무 잦은 검색으로 제한되었습니다.\n" +
                                                            "로그인 후 이용하시면 더 많은 검색을 할 수 있습니다."
     
     // API

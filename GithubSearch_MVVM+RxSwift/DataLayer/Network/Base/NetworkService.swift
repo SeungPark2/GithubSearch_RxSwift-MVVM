@@ -66,7 +66,8 @@ class NetworkService<Target: TargetType>: NetworkServiceType, APILog {
                     }
                     
                     if httpResponse.statusCode == 403 {
-                        throw APIError.invaildToken
+                        let rateLimitResetString: String = (httpResponse.allHeaderFields["x-ratelimit-reset"] as? String) ?? ""
+                        throw APIError.invaildToken(limitResetDate: Int64(Int(rateLimitResetString) ?? 0))
                     }
                     
                     throw APIError.failed(errCode: httpResponse.statusCode, message: "")

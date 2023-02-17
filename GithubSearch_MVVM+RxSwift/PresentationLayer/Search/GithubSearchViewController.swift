@@ -59,13 +59,14 @@ final class GithubSearchViewController: UIViewController {
     // MARK: -- Methods
     
     private func updateNavigationTiTle() {
-        navigationItem.title = StringLiterals.Title.search
+        navigationItem.title = Literals.Title.search
     }
     
     private func setUpNavigationBarAndTabBar() {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationItem.hidesSearchBarWhenScrolling = false
         tabBarController?.tabBar.isTranslucent = true
         tabBarController?.tabBar.backgroundImage = UIImage()
         tabBarController?.tabBar.shadowImage = UIImage()
@@ -103,12 +104,12 @@ final class GithubSearchViewController: UIViewController {
     }
     
     private let searchController = UISearchController(searchResultsController: nil).then {
-        $0.searchBar.placeholder = StringLiterals.Placeholder.keywordInput
-        $0.searchBar.setValue(StringLiterals.Common.cancel, forKey: StringLiterals.Key.cancelButtonText)
-        $0.searchBar.tintColor = .black
+        $0.searchBar.placeholder = Literals.Placeholder.keywordInput
+        $0.searchBar.setValue(Literals.Common.cancel, forKey: Literals.Key.cancelButtonText)
+        $0.searchBar.tintColor = .white
         $0.searchBar.searchTextField.leftView?.tintColor = .lightGray
         $0.searchBar.searchTextField.textColor = .black
-        $0.searchBar.searchTextField.accessibilityIdentifier = StringLiterals.Identifier.searchBarTextField
+        $0.searchBar.searchTextField.accessibilityIdentifier = Literals.Identifier.searchBarTextField
     }
     
     private let repositoryTableView = UITableView().then {
@@ -133,15 +134,26 @@ extension GithubSearchViewController {
             self?.searchController.searchBar.searchTextField.text ?? ""
         }.asDriver(onErrorJustReturn: "")
         
-        let loadNextPage = repositoryTableView.rx.prefetchRows
+        // 무한 스크롤 구현
+        
+        let prefetchRows = repositoryTableView.rx.prefetchRows
             .compactMap(\.last?.row)
-            .withUnretained(self)
-            .filter { vc, row in
-                return (row + 1) % 10 == 0 || row == (vc.repositoryDataSource.sectionModels.first?.items.count ?? 1) - 1
+            .filter { row in
+                (row + 1) % 10 == 0
             }
-            .map { [weak self] _ in
+        
+        let lastIndexCheck = repositoryTableView.rx.contentOffset
+            .filter { [weak self] offset in
+                guard let `self` = self else { return false }
+                guard self.repositoryTableView.frame.height > 0 else { return false }
+                return offset.y + self.repositoryTableView.frame.height >= self.repositoryTableView.contentSize.height + 30
+            }
+        
+        let loadNextPage = Observable.combineLatest(prefetchRows, lastIndexCheck)
+            .map { [weak self] _, _ in
                 self?.searchController.searchBar.searchTextField.text ?? ""
             }.asDriver(onErrorJustReturn: "")
+        
         
         let action = GithubSearchViewModel.Action(
             navigationRightButtonDidTap: navigationRightLoginButton.rx.tap.asDriver(),
@@ -170,7 +182,7 @@ extension GithubSearchViewController {
             .bind { vc, errMsg in
                 vc.showAlertPopup(
                     message: errMsg,
-                    buttons: [UIAlertAction(title: StringLiterals.Common.ok, style: .cancel)]
+                    buttons: [UIAlertAction(title: Literals.Common.ok, style: .cancel)]
                 )
             }
             .disposed(by: disposeBag)
@@ -189,6 +201,19 @@ extension GithubSearchViewController {
             .map { [RepositorySectionData(items: $0)] }
             .observe(on: MainScheduler.instance)
             .bind(to: repositoryTableView.rx.items(dataSource: repositoryDataSource))
+            .disposed(by: disposeBag)
+        
+        state.limitTimerTime
+            .asObservable()
+            .observe(on: MainScheduler.instance)
+            .bind { [weak self] time in
+                guard let timeMessage = time else {
+                    self?.hideToastLabel()
+                    return
+                }
+                
+                self?.showToastLabel(message: timeMessage)
+            }
             .disposed(by: disposeBag)
     }
 }

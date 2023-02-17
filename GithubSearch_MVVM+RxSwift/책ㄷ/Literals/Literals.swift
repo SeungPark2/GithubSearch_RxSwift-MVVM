@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StringLiterals {
+struct Literals {
     struct Common {
         static let ok: String                   = "확인"
         static let cancel: String               = "취소"

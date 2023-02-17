@@ -13,8 +13,10 @@ import RxCocoa
 protocol GithubSearchUseCaseProtocol: AnyObject {
     var errMsg: Driver<String?> { get }
     var repositories: Driver<[Repository]> { get }
+    var limitResetDate: Driver<Date?> { get }
     
     func searchRepository(with keyword: String)
+    func initializationExceededLimit()
 }
 
 final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
@@ -23,11 +25,13 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     
     var errMsg: Driver<String?>
     var repositories: Driver<[Repository]>
+    var limitResetDate: Driver<Date?>
     
     private let repository: GithubSearchRepositoryProtocol
     private let user: User
     private var errMsgRelay = PublishRelay<String?>()
     private var repositoriesRelay = BehaviorRelay<[Repository]>(value: [])
+    private var limitResetDateRelay = BehaviorRelay<Date?>(value: nil)
     private var page: Int = 1
     private var isLastedPage: Bool = false
     private var isLoadingRepositories: Bool = false
@@ -40,12 +44,13 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
         self.user = user
         errMsg = errMsgRelay.asDriver(onErrorJustReturn: nil)
         repositories = repositoriesRelay.asDriver(onErrorJustReturn: [])
+        limitResetDate = limitResetDateRelay.asDriver(onErrorJustReturn: nil)
     }
     
     // MARK: -- Methods
     
     func searchRepository(with keyword: String) {
-        guard !keyword.isEmpty, !isLoadingRepositories, !isLastedPage else { return }
+        guard !keyword.isEmpty, !isLoadingRepositories, !isLastedPage, limitResetDateRelay.value == nil else { return }
         
         isLoadingRepositories = true
         
@@ -65,6 +70,10 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
             .disposed(by: disposeBag)
     }
     
+    func initializationExceededLimit() {
+        limitResetDateRelay.accept(nil)
+    }
+    
     private func checkLastedPage(totalCount: Int) {
         isLastedPage = page * 10 >= totalCount
     }
@@ -75,7 +84,11 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
             return ErrorMessage.failed
         case .tokenEmpty:
             return ErrorMessage.needToken
-        case .invaildToken:
+        case .invaildToken(let limitResetDateInt):
+            if let resetDateInt = limitResetDateInt, resetDateInt > 0 {
+                limitResetDateRelay.accept(Date(timeIntervalSince1970: TimeInterval(integerLiteral: resetDateInt)))
+            }
+            
             return ErrorMessage.searchRateLimit
         case .serverNotConnected:
             return ErrorMessage.serverNotConnected
