@@ -61,6 +61,10 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
                     self?.repositoriesRelay.accept(repositories + repositorySearchResultDTO.repositories.map { $0.toDomain() })
                     self?.isLoadingRepositories = false
                     self?.checkLastedPage(totalCount: repositorySearchResultDTO.total_count)
+                    
+                    if !(self?.isLastedPage ?? true) {
+                        self?.increasePage()
+                    }
                 },
                 onError: { [weak self] err in
                     self?.errMsgRelay.accept(self?.convertToString(err: err as? APIError))
@@ -76,6 +80,10 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     
     private func checkLastedPage(totalCount: Int) {
         isLastedPage = page * 10 >= totalCount
+    }
+    
+    private func increasePage() {
+        page += 1
     }
     
     private func convertToString(err: APIError?) -> String {

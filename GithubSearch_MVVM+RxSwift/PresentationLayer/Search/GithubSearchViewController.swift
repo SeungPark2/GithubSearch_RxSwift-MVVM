@@ -11,7 +11,6 @@ import SnapKit
 import Then
 import RxDataSources
 import RxSwift
-import RxCocoa
 
 final class GithubSearchViewController: UIViewController {
     
@@ -112,9 +111,9 @@ final class GithubSearchViewController: UIViewController {
         $0.searchBar.searchTextField.accessibilityIdentifier = Literals.Identifier.searchBarTextField
     }
     
-    private let repositoryTableView = UITableView().then {
+    private lazy var repositoryTableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
-        $0.estimatedRowHeight = 100
+        $0.estimatedRowHeight = 140
         $0.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 20)
         $0.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.identifier)
     }
@@ -171,7 +170,7 @@ extension GithubSearchViewController {
             .withUnretained(self)
             .bind { vc, isHidden in
                 isHidden ? vc.loadingIndicatorView.stopAnimating() : vc.loadingIndicatorView.startAnimating()
-                vc.loadingIndicatorView.isHidden = isHidden
+                vc.loadingIndicatorView.isHidden = true
             }
             .disposed(by: disposeBag)
         
@@ -196,7 +195,7 @@ extension GithubSearchViewController {
             }
             .disposed(by: disposeBag)
         
-        state.repositories
+        let repositories = state.repositories
             .asObservable()
             .map { [RepositorySectionData(items: $0)] }
             .observe(on: MainScheduler.instance)
