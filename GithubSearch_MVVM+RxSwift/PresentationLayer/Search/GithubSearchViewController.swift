@@ -18,16 +18,10 @@ final class GithubSearchViewController: UIViewController {
     
     private let viewModel: GithubSearchViewModel
     private let disposeBag = DisposeBag()
-    private let repositoryDataSource = RxTableViewSectionedReloadDataSource<RepositorySectionData>(
-        configureCell: { dataSource, tableView, indexPath, repository in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.identifier, for: indexPath) as? RepositoryTableViewCell else {
-                return UITableViewCell()
-            }
-            
-            cell.updateContents(with: repository)
-            return cell
-        }
-    )
+    private let repositoryDataSource = RxTableViewSectionedReloadDataSource<RepositorySectionData> { dataSource, tableView, indexPath, repository in        
+        RepositoryTableViewCell.confiure(tableView: tableView, indexPath: indexPath, repository: repository)
+    }
+    
     
     // MARK: -- Initalize
     
@@ -113,7 +107,7 @@ final class GithubSearchViewController: UIViewController {
     
     private lazy var repositoryTableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
-        $0.estimatedRowHeight = 140
+        $0.estimatedRowHeight = 180
         $0.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 20)
         $0.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.identifier)
     }
@@ -170,7 +164,6 @@ extension GithubSearchViewController {
             .withUnretained(self)
             .bind { vc, isHidden in
                 isHidden ? vc.loadingIndicatorView.stopAnimating() : vc.loadingIndicatorView.startAnimating()
-                vc.loadingIndicatorView.isHidden = true
             }
             .disposed(by: disposeBag)
         
@@ -195,7 +188,7 @@ extension GithubSearchViewController {
             }
             .disposed(by: disposeBag)
         
-        let repositories = state.repositories
+        state.repositories
             .asObservable()
             .map { [RepositorySectionData(items: $0)] }
             .observe(on: MainScheduler.instance)

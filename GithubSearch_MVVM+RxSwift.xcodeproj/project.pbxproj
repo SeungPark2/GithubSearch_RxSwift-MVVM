@@ -55,6 +55,9 @@
 		01A8B5812996A27300796D1E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5802996A27300796D1E /* ErrorMessage.swift */; };
 		01A8B583299BDB6C00796D1E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B582299BDB6C00796D1E /* UIViewController+Extension.swift */; };
 		01A8B587299C3B5B00796D1E /* Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B586299C3B5B00796D1E /* Literals.swift */; };
+		01A8B5B829A38D8400796D1E /* TopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5B729A38D8400796D1E /* TopicCollectionViewCell.swift */; };
+		01A8B5BA29A38F3D00796D1E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5B929A38F3D00796D1E /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		01A8B5BC29A393C800796D1E /* TopicSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B5BB29A393C800796D1E /* TopicSectionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,9 @@
 		01A8B5802996A27300796D1E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		01A8B582299BDB6C00796D1E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		01A8B586299C3B5B00796D1E /* Literals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literals.swift; sourceTree = "<group>"; };
+		01A8B5B729A38D8400796D1E /* TopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionViewCell.swift; sourceTree = "<group>"; };
+		01A8B5B929A38F3D00796D1E /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		01A8B5BB29A393C800796D1E /* TopicSectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSectionData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */,
+				01A8B5B629A38D7500796D1E /* Common */,
 				01A8B568299661BA00796D1E /* DataSrouceSectionData */,
 				01A8B4D62993A84000796D1E /* Profile */,
 				01A8B4D52993A83800796D1E /* Search */,
@@ -270,7 +277,6 @@
 			children = (
 				01266B202992779600FACA75 /* GithubSearchViewController.swift */,
 				01A8B5002993B9B000796D1E /* GithubSearchViewModel.swift */,
-				01A8B5142993D6B400796D1E /* RepositoryTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 		01A8B51C2993DB2200796D1E /* UI+ */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B5B929A38F3D00796D1E /* LeftAlignedCollectionViewFlowLayout.swift */,
 				01A8B51D2993DB2D00796D1E /* UIView+Extension.swift */,
 				01A8B582299BDB6C00796D1E /* UIViewController+Extension.swift */,
 			);
@@ -381,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B569299661C700796D1E /* RepositorySectionData.swift */,
+				01A8B5BB29A393C800796D1E /* TopicSectionData.swift */,
 			);
 			path = DataSrouceSectionData;
 			sourceTree = "<group>";
@@ -411,6 +419,15 @@
 				01A8B57E29969FB300796D1E /* APIPrefix.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		01A8B5B629A38D7500796D1E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B5142993D6B400796D1E /* RepositoryTableViewCell.swift */,
+				01A8B5B729A38D8400796D1E /* TopicCollectionViewCell.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,9 +598,11 @@
 				01A8B587299C3B5B00796D1E /* Literals.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
 				01A8B5732996664E00796D1E /* HTTPMethod.swift in Sources */,
+				01A8B5B829A38D8400796D1E /* TopicCollectionViewCell.swift in Sources */,
 				01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */,
 				01A8B57B2996685400796D1E /* NetworkService.swift in Sources */,
 				01A8B51E2993DB2D00796D1E /* UIView+Extension.swift in Sources */,
+				01A8B5BA29A38F3D00796D1E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */,
 				01A8B5192993D80D00796D1E /* Color.swift in Sources */,
 				01A8B51B2993D95D00796D1E /* Image.swift in Sources */,
@@ -591,6 +610,7 @@
 				01A8B5032993B9D700796D1E /* ViewModelType.swift in Sources */,
 				01266B1D2992779600FACA75 /* AppDelegate.swift in Sources */,
 				01A8B5132993CE7500796D1E /* ProfileViewModel.swift in Sources */,
+				01A8B5BC29A393C800796D1E /* TopicSectionData.swift in Sources */,
 				01A8B577299667C000796D1E /* APIError.swift in Sources */,
 				01A8B4E32993B39800796D1E /* User.swift in Sources */,
 				01A8B55B299525DF00796D1E /* RepositorySearchResultDTO.swift in Sources */,

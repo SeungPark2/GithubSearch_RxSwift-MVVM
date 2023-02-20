@@ -11,12 +11,20 @@ import SnapKit
 import SkeletonView
 import Then
 import Kingfisher
+import RxDataSources
+import RxCocoa
+import RxSwift
 
 final class RepositoryTableViewCell: UITableViewCell {
     
     // MARK: -- Properties
     
     static let identifier: String = "RepositoryTableViewCell"
+    private var topics = PublishRelay<[String]>()
+    private let topicyDataSource = RxCollectionViewSectionedReloadDataSource<TopicSectionData> { dataSource, collectionView, indexPath, topic in
+        TopicCollectionViewCell.confiure(collectionView: collectionView, indexPath: indexPath, topic: topic)
+    }
+    private let disposeBag = DisposeBag()
     
     // MARK: -- Initalize
     
@@ -27,6 +35,7 @@ final class RepositoryTableViewCell: UITableViewCell {
         setUpViewsLayout()
         updateViewsCornerRound()
         selectionStyle = .none
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -34,13 +43,26 @@ final class RepositoryTableViewCell: UITableViewCell {
     }
     
     // MARK: -- Life Cycle
-    
+ 
     // MARK: -- Methods
     
-    func updateContents(with repository: Repository) {
+    static func confiure(tableView: UITableView, indexPath: IndexPath, repository: Repository) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.identifier, for: indexPath) as? RepositoryTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.updateContents(with: repository)
+        return cell
+    }
+    
+    private func updateContents(with repository: Repository) {
         downloadImage(with: repository.owner.profileImageURL)
         repositoryAndOwnerNameLabel.text = repository.nameWithOwnerName
         repositoryDescriptionLabel.text = repository.description
+        // ISSUE - Topic CollectionView Height calculation
+//        topics.accept(repository.topics)
+//        repository.topics.isEmpty ? hideTopicCollectViewWhenTopicsEmpty() : showTopicCollectViewWhenTopicsNotEmpty()
+        hideTopicCollectViewWhenTopicsEmpty()
         starCountLabel.text = "\(repository.starCount)"
         languageLabel.text = repository.language
         licenseLabel.text = repository.license.name
@@ -49,14 +71,30 @@ final class RepositoryTableViewCell: UITableViewCell {
     
     private func downloadImage(with imageURL: String) {
         KF.url(URL(string: imageURL))
-          .loadDiskFileSynchronously()
-          .cacheMemoryOnly()
-          .fade(duration: 0.25)
-          .roundCorner(radius: .widthFraction(20))
-          .onFailure { [weak self] error in
-              self?.ownerImageView.image = Image.Book.closeFill
-          }
-          .set(to: ownerImageView)
+            .loadDiskFileSynchronously()
+            .cacheMemoryOnly()
+            .fade(duration: 0.25)
+            .roundCorner(radius: .widthFraction(20))
+            .onFailure { [weak self] error in
+                self?.ownerImageView.image = Image.Book.closeFill
+            }
+            .set(to: ownerImageView)
+    }
+    
+    private func hideTopicCollectViewWhenTopicsEmpty() {
+        topicCollectView.snp.updateConstraints {
+            $0.height.equalTo(0)
+        }
+        
+        setNeedsLayout()
+    }
+    
+    private func showTopicCollectViewWhenTopicsNotEmpty() {
+        topicCollectView.snp.updateConstraints {
+            $0.height.equalTo(topicCollectView.contentSize.height)
+        }
+        
+        setNeedsLayout()
     }
     
     // MARK: -- AddViews
@@ -65,6 +103,7 @@ final class RepositoryTableViewCell: UITableViewCell {
         contentView.addSubViews(
             ownerImageView, repositoryAndOwnerNameLabel, starButton,
             repositoryDescriptionLabel,
+            topicCollectView,
             starCountImageView, starCountLabel, languageColorView, languageLabel, licenseLabel, updateDateLabel
         )
     }
@@ -98,8 +137,15 @@ final class RepositoryTableViewCell: UITableViewCell {
             $0.height.greaterThanOrEqualTo(15)
         }
         
+        topicCollectView.snp.makeConstraints {
+            $0.top.equalTo(repositoryDescriptionLabel.snp.bottom).offset(4)
+            $0.leading.equalTo(repositoryDescriptionLabel)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(0)
+        }
+        
         starCountImageView.snp.makeConstraints {
-            $0.top.equalTo(repositoryDescriptionLabel.snp.bottom).offset(16)
+            $0.top.equalTo(topicCollectView.snp.bottom).offset(4)
             $0.leading.equalTo(repositoryDescriptionLabel)
             $0.bottom.equalToSuperview().inset(20)
             $0.width.height.equalTo(16)
@@ -161,6 +207,21 @@ final class RepositoryTableViewCell: UITableViewCell {
         $0.numberOfLines = 0
     }
     
+    private lazy var topicCollectView = UICollectionView(frame: .zero, collectionViewLayout: .init()).then {
+        let layout = LeftAlignedCollectionViewFlowLayout()
+        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 5
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
+        
+        $0.collectionViewLayout = layout
+        $0.isScrollEnabled = false
+        $0.register(TopicCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: TopicCollectionViewCell.identifier)
+        
+        if let collectionViewLayout = $0.collectionViewLayout as? UICollectionViewFlowLayout {
+            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
+    
     private let starCountImageView = UIImageView().then {
         $0.image = Image.Star.fill
         $0.tintColor = .yellow
@@ -186,5 +247,15 @@ final class RepositoryTableViewCell: UITableViewCell {
     private let updateDateLabel = UILabel().then {
         $0.textColor = Color.Gray.RGB154
         $0.font = .systemFont(ofSize: 12)
+    }
+}
+
+extension RepositoryTableViewCell {
+    
+    private func bind() {
+        topics
+            .map { [TopicSectionData(items: $0)] }
+            .bind(to: topicCollectView.rx.items(dataSource: topicyDataSource))
+            .disposed(by: disposeBag)
     }
 }
