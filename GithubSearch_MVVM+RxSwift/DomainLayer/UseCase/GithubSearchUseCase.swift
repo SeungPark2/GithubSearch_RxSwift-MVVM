@@ -16,6 +16,7 @@ protocol GithubSearchUseCaseProtocol: AnyObject {
     var limitResetDate: Driver<Date?> { get }
     
     func searchRepository(with keyword: String)
+    func initializationPage()
     func initializationExceededLimit()
 }
 
@@ -72,6 +73,11 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
                 }
             )
             .disposed(by: disposeBag)
+    }
+    
+    func initializationPage() {
+        isLastedPage = false
+        page = 1
     }
     
     func initializationExceededLimit() {

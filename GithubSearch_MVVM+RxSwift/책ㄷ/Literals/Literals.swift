@@ -15,6 +15,7 @@ struct Literals {
     
     struct Title {
         static let search: String               = "search"
+        static let profile: String              = "profile"
     }
     
     struct Placeholder {

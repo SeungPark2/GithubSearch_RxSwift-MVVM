@@ -107,6 +107,8 @@ extension GithubSearchViewModel {
             .asObservable()
             .bind { [weak self] keyword in
                 self?.isHiddenLoadingView.accept(false)
+                self?.useCase.initializationPage()
+                self?.useCase.initializationExceededLimit()
                 self?.useCase.searchRepository(with: keyword)
             }
             .disposed(by: disposeBag)
