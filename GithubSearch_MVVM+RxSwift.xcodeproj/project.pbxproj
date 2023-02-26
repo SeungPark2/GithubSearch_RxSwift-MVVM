@@ -15,6 +15,7 @@
 		01266B342992779700FACA75 /* GithubSearch_MVVM_RxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B332992779700FACA75 /* GithubSearch_MVVM_RxSwiftTests.swift */; };
 		01266B3E2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B3D2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift */; };
 		01266B402992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */; };
+		0190FCE429AB248200DFF7B4 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */; };
 		01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */; };
 		01A8B4E32993B39800796D1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E22993B39800796D1E /* User.swift */; };
 		01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E42993B42400796D1E /* ProfileViewController.swift */; };
@@ -90,6 +91,7 @@
 		01266B392992779700FACA75 /* GithubSearch_MVVM+RxSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GithubSearch_MVVM+RxSwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01266B3D2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearch_MVVM_RxSwiftUITests.swift; sourceTree = "<group>"; };
 		01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
 		01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		01A8B4E22993B39800796D1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01A8B4E42993B42400796D1E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B56F2996661200796D1E /* GithubSearchRepositoryTarget.swift */,
+				0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */,
 				01A8B57B2996685400796D1E /* NetworkService.swift in Sources */,
 				01A8B51E2993DB2D00796D1E /* UIView+Extension.swift in Sources */,
+				0190FCE429AB248200DFF7B4 /* ProfileTarget.swift in Sources */,
 				01A8B5BA29A38F3D00796D1E /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */,
 				01A8B5192993D80D00796D1E /* Color.swift in Sources */,
