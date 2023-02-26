@@ -16,6 +16,8 @@
 		01266B3E2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B3D2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift */; };
 		01266B402992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */; };
 		0190FCE429AB248200DFF7B4 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */; };
+		0190FCE629AB278700DFF7B4 /* UserInfomationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE529AB278700DFF7B4 /* UserInfomationDTO.swift */; };
+		0190FCE829AB29C800DFF7B4 /* BaseReturnDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE729AB29C800DFF7B4 /* BaseReturnDTO.swift */; };
 		01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */; };
 		01A8B4E32993B39800796D1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E22993B39800796D1E /* User.swift */; };
 		01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E42993B42400796D1E /* ProfileViewController.swift */; };
@@ -92,6 +94,8 @@
 		01266B3D2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearch_MVVM_RxSwiftUITests.swift; sourceTree = "<group>"; };
 		01266B3F2992779700FACA75 /* GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearch_MVVM_RxSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
+		0190FCE529AB278700DFF7B4 /* UserInfomationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomationDTO.swift; sourceTree = "<group>"; };
+		0190FCE729AB29C800DFF7B4 /* BaseReturnDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReturnDTO.swift; sourceTree = "<group>"; };
 		01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		01A8B4E22993B39800796D1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01A8B4E42993B42400796D1E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				01A8B5542995106800796D1E /* RepositoryDTO.swift */,
 				01A8B556299511E400796D1E /* OwnerDTO.swift */,
 				01A8B5582995218900796D1E /* LicenseDTO.swift */,
+				0190FCE529AB278700DFF7B4 /* UserInfomationDTO.swift */,
+				0190FCE729AB29C800DFF7B4 /* BaseReturnDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -398,8 +404,8 @@
 		01A8B56D299665FF00796D1E /* Target */ = {
 			isa = PBXGroup;
 			children = (
-				01A8B56F2996661200796D1E /* GithubSearchRepositoryTarget.swift */,
 				0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */,
+				01A8B56F2996661200796D1E /* GithubSearchRepositoryTarget.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				01A8B5072993BA8F00796D1E /* GithubSearchRepository.swift in Sources */,
 				01A8B5812996A27300796D1E /* ErrorMessage.swift in Sources */,
 				01A8B5592995218900796D1E /* LicenseDTO.swift in Sources */,
+				0190FCE829AB29C800DFF7B4 /* BaseReturnDTO.swift in Sources */,
 				01A8B5152993D6B400796D1E /* RepositoryTableViewCell.swift in Sources */,
 				01A8B583299BDB6C00796D1E /* UIViewController+Extension.swift in Sources */,
 				01A8B5112993CE6F00796D1E /* ProfileUseCase.swift in Sources */,
@@ -600,6 +607,7 @@
 				01A8B5792996683600796D1E /* APILog.swift in Sources */,
 				01A8B587299C3B5B00796D1E /* Literals.swift in Sources */,
 				01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */,
+				0190FCE629AB278700DFF7B4 /* UserInfomationDTO.swift in Sources */,
 				01A8B5732996664E00796D1E /* HTTPMethod.swift in Sources */,
 				01A8B5B829A38D8400796D1E /* TopicCollectionViewCell.swift in Sources */,
 				01A8B57F29969FB300796D1E /* APIPrefix.swift in Sources */,
