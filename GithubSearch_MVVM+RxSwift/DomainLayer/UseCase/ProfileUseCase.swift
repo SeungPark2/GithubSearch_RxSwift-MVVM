@@ -14,6 +14,7 @@ protocol ProfileUseCaseProtocol {
     var starRepositories: Driver<[Repository]> { get }
     
     func refreshUserInfomationAndStarRepository()
+    func loadMoreStarRepository()
     func removeStarRepository(index: Int)
     func initializationPage()
 }
@@ -55,6 +56,30 @@ final class ProfileUseCase: ProfileUseCaseProtocol {
             .subscribe(
                 onNext: { [weak self] userInfomationDTO, repositorySearchResultDTO in
                     self?.userRelay.accept(userInfomationDTO.toDomain())
+                    self?.starRepositoriesRelay.accept(repositorySearchResultDTO.repositories.map { $0.toDomain() })
+                    self?.isLoading = false
+                    self?.checkLastedPage(totalCount: repositorySearchResultDTO.total_count)
+                    
+                    if !(self?.isLastedPage ?? true) {
+                        self?.increasePage()
+                    }
+                },
+                onError: { [weak self] err in
+                    self?.errMsgRelay.accept(self?.convertToString(err: err as? APIError))
+                    self?.isLoading = false
+                }
+            )
+            .disposed(by: disposeBag)
+    }
+    
+    func loadMoreStarRepository() {
+        guard !isLoading, !isLastedPage else { return }
+        
+        isLoading = true
+        
+        repository.requestAddedStarRepository(page: page)
+            .subscribe(
+                onNext: { [weak self] repositorySearchResultDTO in
                     let repositories = self?.starRepositoriesRelay.value ?? []
                     self?.starRepositoriesRelay.accept(repositories + repositorySearchResultDTO.repositories.map { $0.toDomain() })
                     self?.isLoading = false
