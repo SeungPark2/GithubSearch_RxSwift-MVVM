@@ -29,7 +29,6 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     var limitResetDate: Driver<Date?>
     
     private let repository: GithubSearchRepositoryProtocol
-    private let user: User
     private var errMsgRelay = PublishRelay<String?>()
     private var repositoriesRelay = BehaviorRelay<[Repository]>(value: [])
     private var limitResetDateRelay = BehaviorRelay<Date?>(value: nil)
@@ -40,9 +39,8 @@ final class GithubSearchUseCase: GithubSearchUseCaseProtocol {
     
     // MARK: -- Initalize
     
-    init(repository: GithubSearchRepositoryProtocol, user: User) {
+    init(repository: GithubSearchRepositoryProtocol) {
         self.repository = repository
-        self.user = user
         errMsg = errMsgRelay.asDriver(onErrorJustReturn: nil)
         repositories = repositoriesRelay.asDriver(onErrorJustReturn: [])
         limitResetDate = limitResetDateRelay.asDriver(onErrorJustReturn: nil)

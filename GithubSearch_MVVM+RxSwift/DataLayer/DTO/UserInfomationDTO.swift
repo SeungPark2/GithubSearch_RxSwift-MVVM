@@ -31,9 +31,27 @@ struct UserInfomationDTO: Codable {
         company = try? container.decode(String.self, forKey: .company)
         blog = try? container.decode(String.self, forKey: .blog)
         location = try? container.decode(String.self, forKey: .company)
-        email = try? container.decode(String.self, forKey: .blog)
+        email = (try? container.decode(String.self, forKey: .email)) ?? ""
         twitter_username = try? container.decode(String.self, forKey: .twitter_username)
         followers = (try? container.decode(Int.self, forKey: .followers)) ?? 0
         following = (try? container.decode(Int.self, forKey: .following)) ?? 0
+    }
+}
+
+extension UserInfomationDTO {
+    
+    func toDomain() -> User {
+        User(
+            id: id,
+            name: name,
+            email: email,
+            profileImageURL: avatar_url,
+            company: company,
+            blog: blog,
+            location: location,
+            twitterUsername: twitter_username,
+            followerCount: followers,
+            followingCount: following
+        )
     }
 }

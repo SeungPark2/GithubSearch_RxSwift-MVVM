@@ -18,6 +18,7 @@
 		0190FCE429AB248200DFF7B4 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */; };
 		0190FCE629AB278700DFF7B4 /* UserInfomationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE529AB278700DFF7B4 /* UserInfomationDTO.swift */; };
 		0190FCE829AB29C800DFF7B4 /* BaseReturnDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE729AB29C800DFF7B4 /* BaseReturnDTO.swift */; };
+		0190FCEA29AB2D0800DFF7B4 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190FCE929AB2D0800DFF7B4 /* Token.swift */; };
 		01A8B4E02993ACF500796D1E /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */; };
 		01A8B4E32993B39800796D1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E22993B39800796D1E /* User.swift */; };
 		01A8B4E52993B42400796D1E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B4E42993B42400796D1E /* ProfileViewController.swift */; };
@@ -96,6 +97,7 @@
 		0190FCE329AB248200DFF7B4 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
 		0190FCE529AB278700DFF7B4 /* UserInfomationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomationDTO.swift; sourceTree = "<group>"; };
 		0190FCE729AB29C800DFF7B4 /* BaseReturnDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReturnDTO.swift; sourceTree = "<group>"; };
+		0190FCE929AB2D0800DFF7B4 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		01A8B4DF2993ACF500796D1E /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		01A8B4E22993B39800796D1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01A8B4E42993B42400796D1E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				01A8B5612996530300796D1E /* Repository.swift */,
 				01A8B563299656E300796D1E /* Owner.swift */,
 				01A8B565299656E800796D1E /* License.swift */,
+				0190FCE929AB2D0800DFF7B4 /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				01A8B5702996661200796D1E /* GithubSearchRepositoryTarget.swift in Sources */,
 				01A8B557299511E400796D1E /* OwnerDTO.swift in Sources */,
 				01A8B50F2993CE6400796D1E /* ProfileRepository.swift in Sources */,
+				0190FCEA29AB2D0800DFF7B4 /* Token.swift in Sources */,
 				01A8B5552995106800796D1E /* RepositoryDTO.swift in Sources */,
 				01A8B5012993B9B000796D1E /* GithubSearchViewModel.swift in Sources */,
 				01A8B566299656E800796D1E /* License.swift in Sources */,
