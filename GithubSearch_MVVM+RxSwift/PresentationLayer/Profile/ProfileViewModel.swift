@@ -5,8 +5,8 @@
 //  Created by 박승태 on 2023/02/08.
 //
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
 final class ProfileViewModel: ViewModelType {
     
@@ -19,10 +19,10 @@ final class ProfileViewModel: ViewModelType {
     
     struct Action {
         let navigationRightButtonDidTap: Driver<Void>
-        let loginButtonDidTap: Driver<Void>
+        let logInSuccess: Driver<String>
         let refresh: Driver<Void>
         let loadNextPage: Driver<Void>
-        let removeStarButtonDidTap: Driver<Int>
+        let starButtonDidTap: Driver<Int>
     }
     
     // MARK: -- State
@@ -77,7 +77,7 @@ extension ProfileViewModel {
             }
             .disposed(by: disposeBag)
         
-        action.removeStarButtonDidTap
+        action.starButtonDidTap
             .asObservable()
             .bind{ [weak self] index in
                 self?.isHiddenLoadingView.accept(false)
